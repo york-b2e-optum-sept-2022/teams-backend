@@ -1,7 +1,11 @@
 package net.yorksolutions.teams.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 public class Team {
@@ -13,10 +17,12 @@ public class Team {
     String name;
 
     @ManyToOne
+    @JsonIgnore
     Account owner;
 
+    public Team() {
+    }
 
-    public Team() {}
     public Team(String name, Account owner) {
         this.name = name;
         this.owner = owner;

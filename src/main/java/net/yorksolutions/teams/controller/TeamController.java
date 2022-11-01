@@ -1,11 +1,9 @@
 package net.yorksolutions.teams.controller;
 
+import net.yorksolutions.teams.dto.CreateTeamRequestDTO;
 import net.yorksolutions.teams.entity.Team;
 import net.yorksolutions.teams.service.TeamService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/team")
@@ -16,9 +14,12 @@ public class TeamController {
     }
 
     @PostMapping
-    public Team create(@RequestBody Team newTeam) {
-        return this.teamService.create(newTeam);
+    public Team create(@RequestBody CreateTeamRequestDTO requestDTO) {
+        return this.teamService.create(requestDTO);
     }
 
-
+    @GetMapping
+    public Team get(@RequestParam Long id) {
+        return this.teamService.get(id);
+    }
 }
