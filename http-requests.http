@@ -1,0 +1,21 @@
+POST http://localhost:8080/api/account
+Content-Type: application/json
+
+{
+  "name": "adam"
+}
+
+###
+
+POST http://localhost:8080/api/team
+Content-Type: application/json
+
+{
+  "name": "adam's team",
+  "owner": {
+    "id": 2,
+    "name": "adam"
+  }
+}
+
+###
